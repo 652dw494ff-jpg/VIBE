@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VYBE — tvoje komunita</title>
+<style>
+:root{--blue:#3269e8;--bg:#f4f6fb;--ink:#182236;--muted:#788397;--line:#e8ecf3;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Inter,Arial,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #7ca2ff;outline-offset:2px}
+.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:24px;padding:0 max(22px,calc((100vw - 1250px)/2));position:sticky;top:0;z-index:10}.logo{font-size:28px;font-weight:950;letter-spacing:-1.7px;color:var(--blue);white-space:nowrap}.logo small{color:#ff6d91;font-size:13px;vertical-align:top;letter-spacing:0}.searchwrap{position:relative;flex:1;max-width:430px}.search{width:100%;border:0;background:#f1f4f9;padding:12px 16px;border-radius:24px;outline:0}.topright{margin-left:auto;display:flex;align-items:center;gap:10px}.iconbtn{width:40px;height:40px;border-radius:50%;background:#f1f4f9;font-size:18px;position:relative}.dot{position:absolute;right:4px;top:3px;background:#ff526b;width:9px;height:9px;border:2px solid white;border-radius:50%}.mechip{display:flex;gap:8px;align-items:center;font-weight:800;cursor:pointer}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-weight:900;color:#24446e;background:linear-gradient(135deg,#dcecff,#d8f5e9)}.avatar.sm{width:34px;height:34px;font-size:13px}.avatar.lg{width:88px;height:88px;font-size:26px}.layout{max-width:1250px;margin:auto;display:grid;grid-template-columns:215px minmax(0,650px) 285px;gap:24px;padding:24px 18px}.left{position:sticky;top:88px;height:max-content}.nav button{display:flex;align-items:center;gap:13px;width:100%;padding:13px 14px;margin:3px 0;border-radius:12px;background:transparent;color:#58657a;text-align:left;font-weight:750}.nav button.active,.nav button:hover{background:#e8efff;color:var(--blue)}.nav .emoji{font-size:20px;width:25px;text-align:center}.primary{background:var(--blue)!important;color:white!important;border-radius:12px;padding:12px 15px;font-weight:800}.newbtn{width:100%;margin:4px 0 14px}.leftnote{color:#9aa3b2;font-size:12px;padding:22px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;margin-bottom:16px;box-shadow:0 3px 12px #253a5a05;overflow:hidden}.pad{padding:18px}.page{display:none}.page.active{display:block}.sectiontitle{font-size:20px;font-weight:900;margin:2px 0 14px}.sub{color:var(--muted);font-size:13px}.stories{display:flex;gap:15px;overflow:auto}.story{min-width:62px;text-align:center;font-size:12px;font-weight:700;cursor:pointer}.storyring{width:60px;height:60px;margin:0 auto 5px;padding:3px;border-radius:50%;background:linear-gradient(135deg,#ff7e8b,#8c66ff,#3e9cf7)}.storyring .avatar{width:100%;height:100%;border:2px solid white}.story.add .storyring{background:#e7efff;padding:2px}.story.add .avatar{color:var(--blue);font-size:26px}.posthead{display:flex;align-items:center;gap:10px;padding:16px 17px 0}.postauthor{font-weight:850}.postmenu{margin-left:auto;background:transparent;color:#778399;font-size:20px}.posttext{white-space:pre-wrap;overflow-wrap:anywhere;padding:13px 17px 15px;font-size:15px}.postvisual{min-height:210px;display:grid;place-items:center;font-size:78px;background:linear-gradient(135deg,#d9e8ff,#f7e5f3,#d9f5e9)}.postvisual.v2{background:linear-gradient(135deg,#fce3bd,#ffdbe6,#d8e7ff)}.postvisual.v3{background:linear-gradient(135deg,#d7f3e7,#dce7ff,#f4e0ff)}.poststats{display:flex;justify-content:space-between;padding:11px 17px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}.postactions{display:flex;padding:4px 8px;gap:3px}.postactions button{flex:1;background:transparent;padding:10px 5px;border-radius:9px;color:#637087;font-weight:750}.postactions button:hover{background:#f3f5fa}.postactions button.liked{color:#e33e68}.comments{padding:0 16px 14px}.comment{display:flex;gap:9px;margin:12px 0;align-items:flex-start}.commentbody{min-width:0;flex:1;background:#f4f6fa;border-radius:13px;padding:9px 12px}.commentname{font-weight:850;font-size:13px}.commenttext{overflow-wrap:anywhere}.commenttools{font-size:11px;color:var(--muted);padding:5px 4px 0;display:flex;gap:14px}.commenttools button{background:transparent;color:inherit;padding:0}.commentbox{display:flex;gap:8px;align-items:center;margin-top:12px}.commentbox input{flex:1;min-width:0;background:#f2f4f8;border:0;border-radius:22px;padding:11px 14px;outline:0}.commentbox button{background:var(--blue);color:white;border-radius:20px;padding:10px 14px;font-weight:800}.composer{display:flex;gap:12px;align-items:center}.composer input{flex:1;min-width:0;border:0;background:#f2f4f8;border-radius:22px;padding:13px 16px;outline:0}.composer button{background:#e9efff;color:var(--blue);border-radius:22px;padding:11px 15px;font-weight:800}.right .card{padding:17px}.right h3{font-size:16px;margin:0 0 13px}.suggestion{display:flex;align-items:center;gap:9px;margin:13px 0}.suggestion .who{flex:1;min-width:0}.suggestion b{display:block;font-size:13px}.suggestion .sub{font-size:11px}.followbtn{background:#eaf0ff;color:var(--blue);font-size:12px;font-weight:850;border-radius:9px;padding:8px 10px;white-space:nowrap}.followbtn.following{background:#f0f2f6;color:#526077}.trending{padding:10px 0;border-bottom:1px solid #f0f2f6}.trending:last-child{border:0}.trending b{display:block}.compose textarea{width:100%;min-height:135px;border:1px solid var(--line);border-radius:13px;padding:14px;resize:vertical;outline:0}.composeactions{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:10px}.composeactions select{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px;color:#536078}.profilecover{height:115px;background:linear-gradient(120deg,#7ca6ff,#c3a6ff,#ffbad4)}.profileinfo{padding:0 20px 20px}.profiletop{display:flex;justify-content:space-between;align-items:end;margin-top:-42px}.profiletop .avatar{border:4px solid white}.stats{display:flex;gap:24px;margin-top:15px}.stats b{font-size:18px}.profilegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.profiletile{aspect-ratio:1;background:linear-gradient(135deg,#d9e8ff,#e7d9f8);display:grid;place-items:center;font-size:38px;cursor:pointer}.profiletile:nth-child(3n+2){background:linear-gradient(135deg,#fce3bd,#ffdbe6)}.peoplelist .personrow{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.personrow:last-child{border:0}.personrow .details{flex:1}.personrow b{display:block}.chat{display:grid;grid-template-columns:175px minmax(0,1fr);height:570px}.chatlist{border-right:1px solid var(--line)}.chatitem{display:flex;align-items:center;gap:9px;padding:13px 10px;border-bottom:1px solid #f0f2f6;cursor:pointer}.chatitem.active,.chatitem:hover{background:#eef3ff}.chatitem b{font-size:13px;display:block}.chatitem .sub{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}.chatwindow{display:flex;flex-direction:column;min-width:0}.chatbar{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}.chatbar .sub{margin-left:auto}.messages{padding:17px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:9px}.bubble{max-width:82%;background:#f0f2f7;padding:10px 13px;border-radius:15px;align-self:flex-start;overflow-wrap:anywhere}.bubble.me{background:var(--blue);color:white;align-self:flex-end;border-bottom-right-radius:5px}.chatinput{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}.chatinput input{flex:1;min-width:0;border:0;background:#f1f3f8;border-radius:22px;padding:11px 13px;outline:0}.chatinput button{background:var(--blue);color:white;border-radius:50%;width:42px;font-weight:900}.empty{padding:28px;text-align:center;color:var(--muted)}.toast{position:fixed;right:22px;bottom:22px;background:#172236;color:white;padding:13px 17px;border-radius:12px;box-shadow:0 8px 30px #0002;opacity:0;transform:translateY(8px);transition:.2s;z-index:30;max-width:90vw}.toast.show{opacity:1;transform:none}.smallbtn{background:transparent;color:var(--blue);font-weight:800}.searchresults{display:none;position:absolute;top:48px;left:0;right:0;background:white;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px #1a2b4a18;padding:8px;z-index:20}.searchresults.show{display:block}.searchresult{display:flex;align-items:center;gap:10px;padding:9px;border-radius:9px;cursor:pointer}.searchresult:hover{background:#f3f5fa}
+@media(max-width:1050px){.layout{grid-template-columns:72px minmax(0,650px);justify-content:center}.right{display:none}.left .label,.leftnote{display:none}.nav button{justify-content:center;padding:14px 5px}.nav .emoji{width:auto;font-size:22px}.newbtn{font-size:0;height:45px;padding:0}.newbtn:after{content:"＋";font-size:25px}.left{width:72px}}
+@media(max-width:650px){.top{height:60px;padding:0 12px;gap:12px}.logo{font-size:24px}.search{padding:10px 12px}.mechip span{display:none}.topright{gap:5px}.iconbtn{width:35px;height:35px}.layout{display:block;padding:13px 9px 80px}.left{position:fixed;top:auto;bottom:0;left:0;right:0;width:auto;height:61px;background:white;border-top:1px solid var(--line);z-index:15;padding:4px 6px}.left .newbtn{display:none}.nav{display:flex;justify-content:space-around}.nav button{margin:0;flex:1;display:flex;flex-direction:column;gap:0;padding:5px 0;border-radius:9px}.nav .emoji{font-size:20px}.nav .label{display:block;font-size:10px}.left .nav button:nth-child(6){display:none}.leftnote{display:none}.chat{grid-template-columns:110px minmax(0,1fr);height:calc(100dvh - 180px);min-height:420px}.chatitem{padding:10px 5px;gap:5px}.chatitem .avatar{width:29px;height:29px;font-size:11px}.chatitem .sub{max-width:65px}.chatitem b{font-size:11px}.profilegrid{gap:3px}.profileinfo{padding:0 13px 16px}.stats{gap:16px}.postvisual{min-height:170px}.searchwrap{max-width:none}.topright .iconbtn:first-child{display:none}}
+
+/* VYBE Liquid Glass — iOS 26 inspired */
+:root{--glass-alpha:.58;--glass-surface:rgba(255,255,255,.58);--glass-line:rgba(255,255,255,.72);--glass-shadow:0 12px 36px rgba(35,55,95,.12)}
+body{background:radial-gradient(ellipse at 12% 0%,rgba(145,185,255,.36),transparent 34%),radial-gradient(ellipse at 85% 10%,rgba(255,174,214,.28),transparent 32%),radial-gradient(ellipse at 55% 100%,rgba(153,236,220,.25),transparent 35%),linear-gradient(135deg,#eaf1ff,#f7f4ff 52%,#e9f8f7);background-attachment:fixed}
+.top,.left,.card,.searchresults,.chat,.chatlist,.chatwindow,.chatbar,.chatinput,.commentbody,.commentbox input,.composer input,.search,.chatinput input,.compose textarea,.composeactions select,.bubble,.poststats,.trending,.peoplelist .personrow,.chatitem,.nav button,.iconbtn,.mechip,.followbtn,.postactions button,.composer button,.commentbox button,.smallbtn,.primary,.toast,.profilecover,.storyring,.postvisual,.profiletile,.avatar,.composeactions,.searchresult{
+ transition:background-color .22s ease,border-color .22s ease,box-shadow .22s ease,transform .22s ease,backdrop-filter .22s ease
+}
+.top{background:rgba(248,251,255,var(--glass-alpha));border-bottom:1px solid rgba(255,255,255,.68);box-shadow:0 8px 30px rgba(43,65,105,.08);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%)}
+.card{background:rgba(255,255,255,var(--glass-alpha));border:1px solid rgba(255,255,255,.78);box-shadow:var(--glass-shadow),inset 0 1px 0 rgba(255,255,255,.72);backdrop-filter:blur(24px) saturate(175%);-webkit-backdrop-filter:blur(24px) saturate(175%)}
+.left{background:rgba(255,255,255,.12);border-radius:22px;padding:8px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.search,.composer input,.commentbox input,.chatinput input,.compose textarea,.composeactions select{background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.75);box-shadow:inset 0 1px 3px rgba(40,60,100,.04)}
+.searchresults{background:rgba(250,252,255,.82);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 18px 45px rgba(35,55,95,.16)}
+.nav button.active,.nav button:hover,.chatitem.active,.chatitem:hover,.postactions button:hover,.searchresult:hover{background:rgba(104,145,255,.17);color:var(--blue)}
+.iconbtn,.followbtn,.composer button,.postactions button,.commentbox button,.chatinput button,.primary,.smallbtn{box-shadow:0 5px 15px rgba(45,85,180,.12)}
+.iconbtn{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.primary,.commentbox button,.chatinput button{background:linear-gradient(135deg,rgba(66,119,244,.94),rgba(103,91,232,.92))!important;border:1px solid rgba(255,255,255,.48)!important;box-shadow:0 7px 18px rgba(67,102,220,.23),inset 0 1px 0 rgba(255,255,255,.3)}
+.followbtn,.composer button{background:rgba(104,145,255,.16);border:1px solid rgba(255,255,255,.8)}
+.poststats{border-bottom-color:rgba(120,145,190,.15)}
+.commentbody,.bubble{background:rgba(235,240,250,.74);border:1px solid rgba(255,255,255,.65)}
+.bubble.me{background:linear-gradient(135deg,#477ef0,#7464e8);color:white}
+.chat{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+.chatlist{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55)}
+.chatbar,.chatinput{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.58)}
+.storyring{box-shadow:0 5px 16px rgba(67,102,170,.18)}
+.avatar{box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.profilecover{background:linear-gradient(120deg,rgba(92,151,255,.78),rgba(190,154,255,.75),rgba(255,160,202,.78))}
+.postvisual{background:linear-gradient(135deg,rgba(181,211,255,.84),rgba(247,214,244,.84),rgba(198,246,232,.84))}
+.postvisual.v2{background:linear-gradient(135deg,rgba(252,227,189,.85),rgba(255,219,230,.85),rgba(216,231,255,.85))}
+.postvisual.v3{background:linear-gradient(135deg,rgba(215,243,231,.85),rgba(220,231,255,.85),rgba(244,224,255,.85))}
+.profiletile{background:linear-gradient(135deg,rgba(217,232,255,.9),rgba(231,217,248,.9))}
+.trending{border-bottom-color:rgba(120,145,190,.2)}
+.toast{background:rgba(24,34,54,.86);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.glass-control{position:fixed;right:18px;bottom:18px;z-index:25;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(255,255,255,.82);border-radius:18px;background:rgba(255,255,255,.62);box-shadow:0 12px 34px rgba(35,55,95,.18),inset 0 1px 0 white;backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);font-size:12px;color:#34415c}
+.glass-control label{font-weight:800;white-space:nowrap}.glass-control input{width:96px;accent-color:#587cf0;cursor:pointer}
+.glass-control output{min-width:32px;text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+@media(max-width:650px){.left{background:rgba(245,249,255,.72);border:1px solid rgba(255,255,255,.8);box-shadow:0 -7px 28px rgba(35,55,95,.1);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%)}.glass-control{right:10px;bottom:72px;padding:8px 10px;gap:7px}.glass-control input{width:75px}.glass-control label{font-size:11px}.layout{padding-bottom:92px}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.top,.card,.searchresults,.glass-control,.left{background:rgba(245,248,255,.94)}}
+
+
+/* Rounded iOS 26-style pill controls */
+button,.primary,.smallbtn,.followbtn,.composer button,.commentbox button,.chatinput button,
+.postactions button,.nav button,.iconbtn,.mechip,.composeactions select,.search,
+.commentbox input,.composer input,.chatinput input,.compose textarea,.glass-control{
+  border-radius:999px;
+}
+.primary,.newbtn{border-radius:999px!important;padding-left:22px;padding-right:22px}
+.postactions button{border-radius:999px;padding:11px 8px}
+.nav button{border-radius:999px}
+.followbtn,.smallbtn{padding:10px 15px}
+.commentbox input,.composer input,.chatinput input,.search{padding-top:13px;padding-bottom:13px}
+.compose textarea{border-radius:22px;resize:vertical}
+.composeactions select{border-radius:999px;padding:10px 15px}
+.chatinput button{border-radius:50%;width:44px;height:44px;flex:0 0 44px}
+.iconbtn{border-radius:50%}
+.glass-control{border-radius:999px}
+.glass-control input[type="range"]{appearance:none;-webkit-appearance:none;height:5px;padding:0;border:0;border-radius:999px;background:linear-gradient(90deg,#6687f4,#c2a5ff);outline:none}
+.glass-control input[type="range"]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:linear-gradient(145deg,#fff,#dce5ff);border:1px solid rgba(91,117,205,.55);box-shadow:0 2px 7px rgba(35,55,95,.25);cursor:grab}
+.glass-control input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:linear-gradient(145deg,#fff,#dce5ff);border:1px solid rgba(91,117,205,.55);box-shadow:0 2px 7px rgba(35,55,95,.25);cursor:grab}
+.glass-control input[type="range"]:focus-visible{outline:2px solid #7ca2ff;outline-offset:5px}
+@media(max-width:650px){.nav button{border-radius:16px}.glass-control{border-radius:999px}}
+
+</style></head>
+<body>
+<header class="top">
+ <div class="logo" onclick="showPage('home')" style="cursor:pointer">VYBE<small>●</small></div>
+ <div class="searchwrap"><input id="search" class="search" placeholder="🔎 Hledej lidi nebo příspěvky…" autocomplete="off"><div id="searchresults" class="searchresults"></div></div>
+ <div class="topright"><button class="iconbtn" title="Aktivita" onclick="showPage('activity')">🔔<span class="dot"></span></button><div class="mechip" onclick="showPage('profile')"><div class="avatar sm">R</div><span>Ríša</span></div></div>
+</header>
+<div class="layout">
+<aside class="left">
+ <button class="primary newbtn" onclick="showPage('create')">＋ <span class="label">Vytvořit příspěvek</span></button>
+ <nav class="nav">
+ <button class="active" data-page="home"><span class="emoji">🏠</span><span class="label">Domů</span></button>
+ <button data-page="explore"><span class="emoji">🔎</span><span class="label">Objevovat</span></button>
+ <button data-page="clips"><span class="emoji">🎬</span><span class="label">Clips</span></button>
+ <button data-page="moments"><span class="emoji">✨</span><span class="label">Moments</span></button>
+ <button data-page="chat"><span class="emoji">💬</span><span class="label">Zprávy</span></button>
+ <button data-page="activity"><span class="emoji">🔔</span><span class="label">Aktivita</span></button>
+ <button data-page="profile"><span class="emoji">👤</span><span class="label">Profil</span></button>
+ </nav>
+ <div class="leftnote">VYBE · demo 2.0<br>Buď v kontaktu. Buď svůj.</div>
+</aside>
+<main>
+<section id="home" class="page active">
+ <div class="card pad"><div class="stories" id="stories"></div></div>
+ <div class="card pad composer"><div class="avatar">R</div><input placeholder="Co máš na srdci, Ríšo?" onclick="showPage('create')" readonly><button onclick="showPage('create')">＋ Post</button></div>
+ <div id="feed"></div>
+</section>
+<section id="explore" class="page"><h2 class="sectiontitle">Objevuj lidi</h2><div class="card pad"><p class="sub">Najdi nové účty a začni je sledovat. Jejich příspěvky se pak zobrazí ve tvém feedu.</p><div id="peoplelist" class="peoplelist"></div></div><h2 class="sectiontitle">Populární příspěvky</h2><div id="explorefeed"></div></section>
+<section id="clips" class="page"><h2 class="sectiontitle">🎬 Clips</h2><div class="card"><div class="postvisual">🎧</div><div class="pad"><b>Hudební nálada dne</b><p class="sub">Ukázkový klip · video zatím není připojené</p><button class="smallbtn" onclick="toast('🎬 Nahrávání videí přidáme v další verzi.')">＋ Přidat vlastní Clip</button></div></div><div class="card"><div class="postvisual v2">✈️</div><div class="pad"><b>Letištní moment</b><p class="sub">Od komunity VYBE</p></div></div></section>
+<section id="moments" class="page"><h2 class="sectiontitle">✨ Moments</h2><div class="card pad"><p>Krátké momenty z dneška. Přidej svůj a sdílej náladu s komunitou.</p><div class="commentbox"><input id="momentinput" placeholder="Co se dnes děje?"><button onclick="addMoment()">Sdílet</button></div></div><div id="momentfeed"></div></section>
+<section id="chat" class="page"><div class="card chat"><div class="chatlist" id="chatlist"></div><div class="chatwindow"><div class="chatbar"><div class="avatar sm" id="chatavatar">M</div><b id="chatname">Míša</b><span class="sub">demo účet</span></div><div class="messages" id="messages"></div><div class="chatinput"><input id="chatinput" placeholder="Napiš zprávu…" onkeydown="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">➤</button></div></div></div><p class="sub">Poznámka: konverzace jsou v této ukázce simulované; nejde o zprávy poslané skutečným lidem.</p></section>
+<section id="activity" class="page"><h2 class="sectiontitle">🔔 Aktivita</h2><div class="card pad" id="activitylist"></div></section>
+<section id="profile" class="page"><div class="card"><div class="profilecover"></div><div class="profileinfo"><div class="profiletop"><div class="avatar lg">R</div><button class="followbtn following" onclick="showPage('create')">＋ Nový příspěvek</button></div><h2 style="margin:12px 0 0">Ríša</h2><div class="sub">@risa · Tvůrce VYBE 🚀</div><p>Technologie, projekty, hudba a nápady. Tohle je můj prostor.</p><div class="stats"><div><b id="myPostCount">0</b><br><span class="sub">Příspěvků</span></div><div><b id="myFollowerCount">0</b><br><span class="sub">Sledujících</span></div><div><b id="myFollowingCount">0</b><br><span class="sub">Sleduji</span></div></div></div></div><h3 class="sectiontitle">Moje příspěvky</h3><div id="myfeed"></div></section>
+<section id="create" class="page"><div class="card pad compose"><h2>Vytvořit příspěvek</h2><p class="sub">Tvůj příspěvek se uloží do feedu i na tvůj profil.</p><textarea id="posttext" maxlength="800" placeholder="Co chceš sdílet s ostatními?"></textarea><div class="composeactions"><select id="postemoji"><option value="">Bez obrázku</option><option>📸</option><option>🎧</option><option>✈️</option><option>🌄</option><option>🎮</option><option>🚀</option><option>🐱</option><option>☀️</option></select><span class="sub">Veřejný příspěvek 🌐</span><button class="primary" onclick="createPost()">Publikovat</button></div></div></section>
+</main>
+<aside class="right">
+ <div class="card"><h3>👥 Lidé, které možná znáš</h3><div id="suggestions"></div><button class="smallbtn" onclick="showPage('explore')">Zobrazit všechny →</button></div>
+ <div class="card"><h3>🔥 Trendy na VYBE</h3><div class="trending"><span class="sub">1 · Technologie</span><b>#NovýProjekt</b><span class="sub">1,2 tis. příspěvků</span></div><div class="trending"><span class="sub">2 · Cestování</span><b>#LetníVýlet</b><span class="sub">846 příspěvků</span></div><div class="trending"><span class="sub">3 · Hudba</span><b>#DJLife</b><span class="sub">520 příspěvků</span></div></div>
+ <div class="sub" style="padding:5px 8px">O VYBE · Soukromí · Nápověda<br>VYBE demo · 2026</div>
+</aside>
+</div><div class="toast" id="toast"></div>
+
+<div class="glass-control" role="group" aria-label="Nastavení průhlednosti Liquid Glass">
+  <label for="glassTransparency">✨ Sklo</label>
+  <input id="glassTransparency" type="range" min="10" max="90" step="5" value="58" aria-label="Průhlednost skla" title="Posuň pro změnu průhlednosti">
+  <output id="glassTransparencyValue" for="glassTransparency">58%</output>
+</div>
+
+<script>
+const PEOPLE=[
+ {id:'misa',name:'Míša',handle:'@misa',initial:'M',color:'#e6dcff',bio:'Hudba, memes a dobrá nálada ✨',kind:'friend'},
+ {id:'vojta',name:'Vojta',handle:'@vojta',initial:'V',color:'#d9e9ff',bio:'Technologie a hry 🎮',kind:'friend'},
+ {id:'adam',name:'Adam',handle:'@adam',initial:'A',color:'#d8f4e5',bio:'Vždycky něco vymýšlím 😎',kind:'friend'},
+ {id:'pata',name:'Páťa',handle:'@pata',initial:'P',color:'#ffe8ce',bio:'Kamarádi, škola a projekty',kind:'friend'},
+ {id:'nova',name:'Nova Tech',handle:'@novatech',initial:'N',color:'#dce5ff',bio:'Novinky ze světa technologií 🧪',kind:'creator'},
+ {id:'skyline',name:'Skyline Studios',handle:'@skyline',initial:'S',color:'#f5dfff',bio:'Filmy, plakáty a kreativita 🎬',kind:'creator'},
+ {id:'marsh',name:'Marshmello Fans',handle:'@marshfans',initial:'🎧',color:'#fff0c9',bio:'Elektronická hudba a festivaly 🎵',kind:'creator'},
+ {id:'orion',name:'Orion Bot',handle:'@orionbot',initial:'🤖',color:'#d8eaff',bio:'Tvůj pomocník pro nápady',kind:'bot'},
+ {id:'vybe',name:'VYBE Bot',handle:'@vybebot',initial:'⚡',color:'#ffe0e8',bio:'Novinky a tipy k VYBE',kind:'bot'}
+];
+const SEED_POSTS=[
+ {id:'seed1',author:'misa',text:'Nový den, nový VYBE 😎 Co dneska podnikáte?',emoji:'☀️',likes:24,likedBy:[],comments:[{id:'c1',author:'vojta',text:'Tohle vypadá fakt dobře 😄',likes:2,liked:false},{id:'c2',author:'adam',text:'🔥 VYBE začíná vypadat dobře.',likes:1,liked:false}] ,time:Date.now()-900000},
+ {id:'seed2',author:'vojta',text:'Rychlá anketa: co je lepší na volný den? ✈️ výlet, nebo 🎮 herní večer?',emoji:'🎮',likes:17,likedBy:[],comments:[{id:'c3',author:'misa',text:'Za mě výlet! 🌄',likes:3,liked:false}],time:Date.now()-3600000},
+ {id:'seed3',author:'adam',text:'Dneska mě napadlo pár nových věcí do našich projektů. Co byste chtěli na VYBE jako další? 💡',emoji:'🚀',likes:31,likedBy:[],comments:[{id:'c4',author:'pata',text:'Skupinový chat by byl super!',likes:4,liked:false}],time:Date.now()-7200000},
+ {id:'seed4',author:'nova',text:'Technologický tip týdne: nejlepší projekty rostou postupně — verze po verzi. 🧪',emoji:'🧪',likes:42,likedBy:[],comments:[],time:Date.now()-10800000},
+ {id:'seed5',author:'skyline',text:'Nový filmový nápad začíná jednou větou. Jaký film byste chtěli vidět? 🎬',emoji:'🎬',likes:19,likedBy:[],comments:[],time:Date.now()-14400000},
+ {id:'seed6',author:'marsh',text:'Sluchátka, oblíbený track a žádné starosti. 🎧✨',emoji:'🎧',likes:57,likedBy:[],comments:[],time:Date.now()-18000000}
+];
+function load(key,fallback){try{let x=localStorage.getItem('vybe2_'+key);return x?JSON.parse(x):fallback}catch(e){return fallback}}
+let state=load('state',{following:['misa','vojta','adam','pata'],posts:SEED_POSTS,activities:[],moments:[]});
+let chats=load('chats',{});
+let currentChat='misa';
+function save(){localStorage.setItem('vybe2_state',JSON.stringify(state));localStorage.setItem('vybe2_chats',JSON.stringify(chats))}
+function person(id){return PEOPLE.find(p=>p.id===id)||{id:'risa',name:'Ríša',handle:'@risa',initial:'R',color:'#dcecff',bio:'Tvůrce VYBE'}}
+function avatar(id,small=false){let p=person(id);return `<div class="avatar ${small?'sm':''}" style="background:${p.color}">${p.initial}</div>`}
+function timeAgo(t){let m=Math.max(1,Math.floor((Date.now()-t)/60000));return m<60?`před ${m} min`:m<1440?`před ${Math.floor(m/60)} h`:`před ${Math.floor(m/1440)} d`}
+function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>e.classList.remove('show'),2300)}
+function showPage(id){document.querySelectorAll('.page').forEach(e=>e.classList.toggle('active',e.id===id));document.querySelectorAll('[data-page]').forEach(e=>e.classList.toggle('active',e.dataset.page===id));if(id==='profile')renderProfile();if(id==='chat')renderChat();if(id==='activity')renderActivity();if(id==='explore')renderExplore();if(id==='moments')renderMoments();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function renderStories(){let ids=['misa','vojta','adam','pata','nova','skyline','marsh'];document.getElementById('stories').innerHTML=`<div class="story add" onclick="showPage('moments')"><div class="storyring"><div class="avatar">＋</div></div>Tvůj moment</div>`+ids.map(id=>`<div class="story" onclick="openPerson('${id}')"><div class="storyring">${avatar(id)}</div>${person(id).name}</div>`).join('')}
+function renderPost(post,where='feed'){
+ let p=person(post.author),mine=post.author==='risa',liked=(post.likedBy||[]).includes('risa');
+ let comments=(post.comments||[]).map(c=>{let cp=person(c.author);return `<div class="comment">${avatar(c.author,true)}<div class="commentbody"><div class="commentname">${cp.name}</div><div class="commenttext">${esc(c.text)}</div><div class="commenttools"><button onclick="likeComment('${post.id}','${c.id}')">${c.liked?'❤️':'♡'} ${c.likes||0}</button><button onclick="replyTo('${post.id}','${cp.name}')">Odpovědět</button></div></div></div>`}).join('');
+ return `<article class="card" id="post-${post.id}"><div class="posthead">${avatar(post.author)}<div><div class="postauthor" style="cursor:pointer" onclick="openPerson('${post.author}')">${p.name}${mine?' · ty':''}</div><div class="sub">${p.handle} · ${timeAgo(post.time)}</div></div><button class="postmenu" onclick="${mine?`deletePost('${post.id}')`:`toast('Příspěvek je v pořádku 👍')`}" title="${mine?'Smazat příspěvek':'Další možnosti'}">${mine?'⋯':'•••'}</button></div><div class="posttext">${esc(post.text)}</div>${post.emoji?`<div class="postvisual ${post.id.length%2?'v2':'v3'}">${post.emoji}</div>`:''}<div class="poststats"><span>❤️ ${post.likes||0} To se líbí</span><span>${(post.comments||[]).length} komentářů</span></div><div class="postactions"><button class="${liked?'liked':''}" onclick="toggleLike('${post.id}')">${liked?'❤️ Líbí se ti':'♡ To se mi líbí'}</button><button onclick="focusComment('${post.id}')">💬 Komentovat</button><button onclick="sharePost('${post.id}')">↗ Sdílet</button></div><div class="comments"><div class="commentlist">${comments||'<div class="sub" style="padding:7px 0">Zatím žádné komentáře. Začni konverzaci! 💬</div>'}</div><div class="commentbox">${avatar('risa',true)}<input id="comment-${post.id}" placeholder="Napiš komentář…" onkeydown="if(event.key==='Enter')addComment('${post.id}')"><button onclick="addComment('${post.id}')">Odeslat</button></div></div></article>`
+}
+function renderFeed(){let all=[...state.posts].sort((a,b)=>b.time-a.time);let followed=all.filter(p=>p.author==='risa'||state.following.includes(p.author));document.getElementById('feed').innerHTML=followed.map(p=>renderPost(p)).join('')||'<div class="card empty">Ve feedu zatím nic není. Začni sledovat někoho v sekci Objevovat. 👀</div>';document.getElementById('explorefeed').innerHTML=all.map(p=>renderPost(p,'explore')).join('')}
+function renderPeople(){let html=PEOPLE.filter(p=>p.id!=='orion'&&p.id!=='vybe').map(p=>`<div class="suggestion">${avatar(p.id,true)}<div class="who"><b>${p.name}</b><div class="sub">${p.handle}</div></div>${followButton(p.id)}</div>`).join('');document.getElementById('suggestions').innerHTML=html;document.getElementById('peoplelist').innerHTML=PEOPLE.filter(p=>p.id!=='risa').map(p=>`<div class="personrow">${avatar(p.id)}<div class="details"><b>${p.name}</b><span class="sub">${p.handle} · ${p.bio}</span></div>${followButton(p.id)}${p.kind!=='bot'?`<button class="followbtn" onclick="startChat('${p.id}')">💬 Napsat</button>`:''}</div>`).join('')}
+function followButton(id){let yes=state.following.includes(id);return `<button class="followbtn ${yes?'following':''}" onclick="toggleFollow('${id}')">${yes?'✓ Sleduješ':'＋ Sledovat'}</button>`}
+function toggleFollow(id){if(state.following.includes(id)){state.following=state.following.filter(x=>x!==id);toast(`Přestal/a jsi sledovat ${person(id).name}.`)}else{state.following.push(id);state.activities.unshift({text:`Začal/a jsi sledovat ${person(id).name}.`,time:Date.now()});toast(`🎉 Teď sleduješ ${person(id).name}!`)}save();renderPeople();renderFeed();renderProfile();renderStories()}
+function toggleLike(id){let p=state.posts.find(x=>x.id===id);if(!p)return;p.likedBy=p.likedBy||[];let i=p.likedBy.indexOf('risa');if(i>=0){p.likedBy.splice(i,1);p.likes=Math.max(0,p.likes-1)}else{p.likedBy.push('risa');p.likes++;if(p.author!=='risa')state.activities.unshift({text:`Dal/a jsi ❤️ příspěvku od ${person(p.author).name}.`,time:Date.now()})}save();renderFeed();if(document.getElementById('profile').classList.contains('active'))renderProfile()}
+function addComment(id){let input=document.getElementById('comment-'+id),text=input.value.trim();if(!text)return;let p=state.posts.find(x=>x.id===id);p.comments=p.comments||[];p.comments.push({id:'c'+Date.now(),author:'risa',text,likes:0,liked:false});if(p.author!=='risa')state.activities.unshift({text:`Okomentoval/a jsi příspěvek od ${person(p.author).name}.`,time:Date.now()});save();renderFeed();if(document.getElementById('profile').classList.contains('active'))renderProfile();toast('💬 Komentář přidán')}
+function focusComment(id){let e=document.getElementById('comment-'+id);if(e){e.focus();e.scrollIntoView({behavior:'smooth',block:'center'})}}
+function likeComment(pid,cid){let p=state.posts.find(x=>x.id===pid),c=p.comments.find(x=>x.id===cid);c.liked=!c.liked;c.likes=Math.max(0,(c.likes||0)+(c.liked?1:-1));save();renderFeed()}
+function replyTo(pid,name){let e=document.getElementById('comment-'+pid);e.value=`@${name} `;e.focus()}
+function sharePost(id){let p=state.posts.find(x=>x.id===id);if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(location.href+'#post-'+id).catch(()=>{});toast('↗ Příspěvek je připravený ke sdílení!')}
+function createPost(){let text=document.getElementById('posttext').value.trim();if(!text){toast('Nejdřív napiš text příspěvku 🙂');return}let emoji=document.getElementById('postemoji').value;state.posts.unshift({id:'post'+Date.now(),author:'risa',text,emoji,likes:0,likedBy:[],comments:[],time:Date.now()});state.activities.unshift({text:'Tvůj nový příspěvek byl zveřejněn.',time:Date.now()});save();document.getElementById('posttext').value='';document.getElementById('postemoji').value='';renderFeed();renderProfile();showPage('home');toast('🚀 Příspěvek zveřejněn! Najdeš ho i na svém profilu.')}
+function deletePost(id){if(!confirm('Opravdu chceš smazat svůj příspěvek?'))return;state.posts=state.posts.filter(p=>p.id!==id);save();renderFeed();renderProfile();toast('Příspěvek smazán.')}
+function renderProfile(){let mine=state.posts.filter(p=>p.author==='risa');document.getElementById('myPostCount').textContent=mine.length;document.getElementById('myFollowerCount').textContent=PEOPLE.filter(p=>p.id!=='risa').length+12;document.getElementById('myFollowingCount').textContent=state.following.length;document.getElementById('myfeed').innerHTML=mine.length?mine.map(p=>renderPost(p)).join(''):'<div class="card empty">Zatím tu nemáš příspěvek. ✨<br><button class="smallbtn" onclick="showPage(\'create\')">Vytvořit první příspěvek</button></div>'}
+function openPerson(id){let p=person(id);if(id==='risa'){showPage('profile');return}showPage('explore');toast(`${p.name} · ${p.bio}`)}
+function renderExplore(){renderPeople();document.getElementById('explorefeed').innerHTML=[...state.posts].sort((a,b)=>b.likes-a.likes).map(p=>renderPost(p,'explore')).join('')}
+function renderActivity(){let a=state.activities.slice(0,30);document.getElementById('activitylist').innerHTML=a.length?a.map(x=>`<div class="trending">${esc(x.text)}<div class="sub">${timeAgo(x.time)}</div></div>`).join(''):'<div class="empty">Zatím žádná nová aktivita. Až budeš lajkovat, komentovat nebo sledovat účty, objeví se tady. 🔔</div>'}
+function addMoment(){let i=document.getElementById('momentinput'),text=i.value.trim();if(!text)return;state.moments.unshift({text,time:Date.now()});save();i.value='';renderMoments();toast('✨ Moment přidán!')}
+function renderMoments(){let base=[{author:'misa',text:'Dnešní nálada: pohoda a hudba 🎧',time:Date.now()-300000},{author:'vojta',text:'Našel jsem super nápad na nový projekt 💡',time:Date.now()-900000}];document.getElementById('momentfeed').innerHTML=[...state.moments.map(m=>({...m,author:'risa'})),...base].map(m=>`<div class="card pad"><div class="person">${avatar(m.author,true)}<div><b>${person(m.author).name}</b><div class="sub">${timeAgo(m.time)}</div></div></div><p>${esc(m.text)}</p><button class="followbtn" onclick="toast('❤️ Reakce přidána')">❤️ Reagovat</button></div>`).join('')}
+const CHAT_DEFAULT={
+ misa:[['Čau Ríšo! 👋 Jak se ti líbí VYBE?',false],['Viděla jsem feed, už to začíná vypadat jako opravdová síť 😄',false]],
+ vojta:[['Nazdar! Co nového na VYBE?',false],['Ten nápad se sledováním lidí je dobrý. Co přidáš dál?',false]],
+ adam:[['Čau! 😎 Na čem teď pracuješ?',false],['Můžeme vymyslet nějakou další funkci.',false]],
+ pata:[['Čau, jak jde vývoj?',false]],
+ orion:[['Ahoj Ríšo! 🤖 Jsem Orion Bot. Můžu ti pomoct vymyslet další funkce.',false]],
+ vybe:[['⚡ Vítej ve VYBE 2.0!',false],['Zprávy v této verzi jsou ukázkové a ukládají se jen v tomto prohlížeči.',false]]
+};
+function chatHistory(id){if(!chats[id])chats[id]=JSON.parse(JSON.stringify(CHAT_DEFAULT[id]||[['Ahoj! 👋',false]]));return chats[id]}
+function renderChatList(){let ids=['misa','vojta','adam','pata','orion','vybe'];document.getElementById('chatlist').innerHTML=ids.map(id=>{let p=person(id),h=chatHistory(id),last=h[h.length-1]?.[0]||'Napiš zprávu';return `<div class="chatitem ${id===currentChat?'active':''}" onclick="startChat('${id}')">${avatar(id,true)}<div><b>${p.name}</b><div class="sub">${esc(last)}</div></div></div>`}).join('')}
+function renderChat(){let p=person(currentChat);document.getElementById('chatname').textContent=p.name;document.getElementById('chatavatar').textContent=p.initial;document.getElementById('chatavatar').style.background=p.color;document.getElementById('messages').innerHTML=chatHistory(currentChat).map(m=>`<div class="bubble ${m[1]?'me':''}">${esc(m[0])}</div>`).join('');document.getElementById('messages').scrollTop=999999;renderChatList()}
+function startChat(id){currentChat=id;showPage('chat');renderChat()}
+function sendMessage(){let input=document.getElementById('chatinput'),text=input.value.trim();if(!text)return;let id=currentChat;chatHistory(id).push([text,true]);input.value='';save();renderChat();setTimeout(()=>{let reply=makeReply(id,text);chatHistory(id).push([reply,false]);save();if(currentChat===id)renderChat();else toast(`💬 Nová zpráva od ${person(id).name}`)},650+Math.random()*500)}
+function makeReply(id,text){let t=text.toLowerCase();if(id==='orion'){if(/nápad|funkc|přidat|vylepš/.test(t))return '🤖 Co třeba ankety, ukládání příspěvků nebo odpovědi na komentáře? Můžeme to přidat postupně.';if(/ahoj|čau|nazdar/.test(t))return 'Ahoj Ríšo! 👋 Co dneska na VYBE vymyslíme?';return 'Rozumím! 😊 Můžu ti pomoct promyslet další krok nebo funkci VYBE.'}if(id==='vybe')return '⚡ Díky za zprávu! Tohle je demo chat — další funkce přijdou v aktualizacích.';if(/jak se máš|jak je/.test(t))return ['Mám se fajn, díky 😄 A ty?','Docela dobře! Co ty? 😊'][Math.floor(Math.random()*2)];if(/vybe|web|aplikac|projekt/.test(t))return ['VYBE začíná být fakt dobrý! 🔥','Tohle by se dalo ještě hodně rozšířit.','Jo, dej tomu pár aktualizací a bude to super 😎'][Math.floor(Math.random()*3)];if(/škola|úkol|test/.test(t))return ['Uf, škola někdy umí dát zabrat 😅','Držím palce, ať to dopadne dobře! 💪'][Math.floor(Math.random()*2)];if(/dík|děku/.test(t))return 'V pohodě! 😄';if(/co děláš|co je/.test(t))return ['Zrovna odpočívám, co ty?','Píšu si s tebou 😄','Koukám, co je nového.'][Math.floor(Math.random()*3)];const replies={misa:['Haha, fakt? 😄','To je dobrý! 😂','Jojo, chápu tě.','A co budeš dělat potom? 👀'],vojta:['Jo, to zní dobře 😎','To bych taky zkusil!','A jak to chceš udělat?','Haha přesně 😂'],adam:['Dobrý nápad! 🔥','Jo, to dává smysl.','Tak to musíme někdy vyzkoušet 😄','A co dál?'],pata:['Jasně 😄','To zní dobře!','Jo, chápu.']};let options=replies[id]||['Jasně 😄','To zní dobře!'];return options[Math.floor(Math.random()*options.length)]}
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+const search=document.getElementById('search'),results=document.getElementById('searchresults');
+search.addEventListener('input',()=>{let q=search.value.trim().toLowerCase();if(!q){results.classList.remove('show');return}let people=PEOPLE.filter(p=>(p.name+' '+p.handle+' '+p.bio).toLowerCase().includes(q));let posts=state.posts.filter(p=>p.text.toLowerCase().includes(q));results.innerHTML=people.map(p=>`<div class="searchresult" onclick="openPerson('${p.id}');results.classList.remove('show');search.value=''">${avatar(p.id,true)}<div><b>${p.name}</b><div class="sub">${p.handle}</div></div></div>`).join('')+posts.slice(0,3).map(p=>`<div class="searchresult" onclick="showPage('home');results.classList.remove('show');document.getElementById('post-${p.id}')?.scrollIntoView({behavior:'smooth'})">📝 <span>${esc(p.text.slice(0,55))}</span></div>`).join('')||'<div class="empty">Nic jsme nenašli.</div>';results.classList.add('show')});
+document.addEventListener('click',e=>{if(!e.target.closest('.searchwrap'))results.classList.remove('show')});
+function init(){renderStories();renderPeople();renderFeed();renderProfile();renderActivity();renderMoments();renderChat();save()}
+init();
+</script>
+<script>
+(function(){
+  const slider=document.getElementById('glassTransparency');
+  const value=document.getElementById('glassTransparencyValue');
+  if(!slider||!value)return;
+  let saved=58;
+  try{const raw=localStorage.getItem('vybeGlassTransparency');if(raw!==null){const n=Number(raw);if(Number.isFinite(n))saved=Math.min(90,Math.max(10,n));}}catch(e){}
+  slider.value=String(saved);
+  function applyGlass(){
+    const n=Number(slider.value);
+    document.documentElement.style.setProperty('--glass-alpha',String(n/100));
+    document.documentElement.style.setProperty('--glass-surface','rgba(255,255,255,'+(n/100)+')');
+    value.textContent=n+'%';
+    try{localStorage.setItem('vybeGlassTransparency',String(n));}catch(e){}
+  }
+  slider.addEventListener('input',applyGlass);
+  applyGlass();
+})();
+</script>
+
+</body></html>
